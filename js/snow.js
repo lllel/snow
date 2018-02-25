@@ -2,6 +2,7 @@
 
 var COUNT = 700;
 var WIND = 10;
+var WIND_FOR_SMALL_SNOWFLAKE = 0.3;
 
 var canvas = document.querySelector('#field');
 var ctx = canvas.getContext('2d');
@@ -55,7 +56,7 @@ Snowflake.prototype.isOffScreen = function () {
 };
 
 Snowflake.prototype.update = function () {
-  this.x += -this.size / WIND;
+  this.x += -this.size / WIND + WIND_FOR_SMALL_SNOWFLAKE;
   this.y += this.size;
 
   if(this.isOffScreen()) {
